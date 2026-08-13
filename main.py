@@ -1,4 +1,3 @@
-import time
 import tool
 print("Hello")
 print("Choose your language")
