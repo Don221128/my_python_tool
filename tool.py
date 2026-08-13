@@ -53,6 +53,7 @@ def game(chinese):
                     break
                 if answer==int(player_enter):
                     print("Congratulations, you guessed correctly")
+                    break
                 else:
                     print("Try again")
     except ValueError:
