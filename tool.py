@@ -1,8 +1,8 @@
 import time
 import random
-def timer(chinese):
+def timer(language):
     try:
-        if chinese==True:
+        if language=="chinese":
             print("歡迎")
             input("按Enter開始")
             number=input("輸入你要計時的秒數（輸入out離開）：")
@@ -24,9 +24,9 @@ def timer(chinese):
             print("Done")
     except ValueError:
         print(f"Not find {number}")
-def game(chinese):
+def game(langauge):
     try:
-        if chinese==True:
+        if langauge=="chinese":
             print("歡迎")
             input("按Enter開始")
             answer="0"
