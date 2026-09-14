@@ -14,12 +14,23 @@ while True:
             open_tool=input("輸入工具編號開啟（輸入out離開）：")
         else:
             print("\n1.Timer\n2.Game")
-            open_tool=input("Enter tool ID open(enter 'out' to quit): ")
+            open_tool=input("Enter tool ID open(enter'out'to quit): ")
         if open_tool=="1":
             tool.timer(language)
         elif open_tool=="2":
             tool.game(language)
-        else:
+        elif open_tool=="out":
             break
+        else:
+            if language=="chinese":
+                raise ValueError(f"""Traceback (most recent call last):
+File "main.py", line 25, in <module>
+open_tool=input("輸入工具編號開啟（輸入out離開）：")
+ValueError: {open_tool} not in list""")
+            else:
+                raise ValueError(f"""Traceback (most recent call last):
+File "main.py", line 25, in <module>
+open_tool=input("Enter tool ID open/(enter'out'to quit/):")
+ValueError:{open_tool} not in list""")
     except ValueError as e:
-        print(f"Not find {open_tool}.Detailed Information:{e}")
+        print(f"Not find {open_tool}.Detailed Information:\n{e}")
