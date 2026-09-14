@@ -21,5 +21,5 @@ while True:
             tool.game(language)
         else:
             break
-    except ValueError:
-        print(f"Not find {open_tool}")
+    except ValueError as e:
+        print(f"Not find {open_tool}.Detailed Information:{e}")
