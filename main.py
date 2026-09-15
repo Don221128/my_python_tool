@@ -24,13 +24,13 @@ while True:
         else:
             if language=="chinese":
                 raise ValueError(f"""Traceback (most recent call last):
-File "main.py", line 25, in <module>
-open_tool=input("輸入工具編號開啟（輸入out離開）：")
+  File "main.py", line 14, in <module>
+    open_tool=input("輸入工具編號開啟（輸入out離開）：")
 ValueError: {open_tool} not in list""")
             else:
                 raise ValueError(f"""Traceback (most recent call last):
-File "main.py", line 25, in <module>
-open_tool=input("Enter tool ID open/(enter'out'to quit/):")
+  File "main.py", line 17, in <module>
+    open_tool=input("Enter tool ID open/(enter'out'to quit/):")
 ValueError:{open_tool} not in list""")
     except ValueError as e:
         print(f"Not find {open_tool}.Detailed Information:\n{e}")
