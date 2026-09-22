@@ -99,19 +99,22 @@ def text_editor(lanauge):
             print("1.Read file\n2.Create new file")
             user_enter=input("Enter the number to continue(Enter'out'to quit):")
         if user_enter=="1":
-            for n,t in enumerate(flie,start=1):
-                print(n,t)
-            if len(flie)==0:
-                raise ValueError()
-            else:
-                if lanauge=="chinese":
-                    choice=int(input("輸入編號開啟："))
+            try:
+                for n,t in enumerate(flie,start=1):
+                    print(n,t.replace(".os.txt",""))
+                if len(flie)==0:
+                    raise ValueError()
                 else:
-                    choice=int(input("Enter the ID to activate:"))
-                i=choice-1
-                open_file=flie[i]
-                with open(open_file,"r",encoding="utf-8")as f:
-                    print(f.read())
+                    if lanauge=="chinese":
+                        choice=int(input("輸入編號開啟："))
+                    else:
+                        choice=int(input("Enter the ID to activate:"))
+                    i=choice-1
+                    open_file=flie[i]
+                    with open(open_file,"r",encoding="utf-8")as f:
+                        print(f.read())
+            except ValueError:
+                print(f"Not find{choice}")
         if user_enter=="2":
             if lanauge=="chinese":
                 flie_name=input("輸入文件名稱：")

@@ -23,7 +23,7 @@ while True:
             tool.calculator(language)
         elif open_tool=="4":
             tool.text_editor(language)
-        elif open_tool.lower=="out":
+        elif open_tool=="out":
             break
         else:
             if language=="chinese":
