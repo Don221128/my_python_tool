@@ -1,5 +1,6 @@
 import time
 import random
+import glob
 def timer(language):
     try:
         if language=="chinese":
@@ -61,14 +62,14 @@ def calculator(langauge):
             print("歡迎")
             input("按Enter開始")
             print("1.+\n2.-\n3.*\n4./")
-            operator=input("輸入編號運算：")
+            operator=input("輸入編號運算（輸入out離開）：")
             numerical_value1=int(input("1."))
             numerical_value2=int(input("2."))
         else:
             print("Hello")
             input("Use enter start")
             print("1.+\n2.-\n3.*\n4./")
-            operator=input("Enter ID number to calculate:")
+            operator=input("Enter ID number to calculate(Enter'out'to quit):")
             numerical_value1=int(input("1."))
             numerical_value2=int(input("2."))
         if operator=="1":
@@ -79,5 +80,48 @@ def calculator(langauge):
             print(numerical_value1*numerical_value2)
         elif operator=="4":
             print(numerical_value1/numerical_value2)
+        if operator.lower=="out":
+            return
     except ValueError:
         print(f"Not find {operator}")
+def text_editor(lanauge):
+    user_enter=0
+    flie=glob.glob("*.os.txt")
+    try:
+        if lanauge=="chinese":
+            print("歡迎")
+            input("按Enter開始")
+            print("1.讀取檔案\n2.新建檔案")
+            user_enter=input("輸入編號繼續(輸入out離開）：")
+        else:
+            print("Wecome")
+            input("Use enter start")
+            print("1.Read file\n2.Create new file")
+            user_enter=input("Enter the number to continue(Enter'out'to quit):")
+        if user_enter=="1":
+            for n,t in enumerate(flie,start=1):
+                print(n,t)
+            if len(flie)==0:
+                raise ValueError()
+            else:
+                if lanauge=="chinese":
+                    choice=int(input("輸入編號開啟："))
+                else:
+                    choice=int(input("Enter the ID to activate:"))
+                i=choice-1
+                open_file=flie[i]
+                with open(open_file,"r",encoding="utf-8")as f:
+                    print(f.read())
+        if user_enter=="2":
+            if lanauge=="chinese":
+                flie_name=input("輸入文件名稱：")
+                content=input("輸入文件內容：")
+            else:
+                flie_name=input("Enter file name:")
+                content=input("Input file content:")
+            with open(f"{flie_name}.os.txt","w",encoding="utf-8")as f:
+                f.write(content)
+            if user_enter.lower=="out":
+                return
+    except ValueError:
+        print(f"Not find{user_enter}")
