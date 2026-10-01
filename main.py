@@ -1,8 +1,6 @@
 import tool
-print("Hello")
-print("Choose your language")
-player_language=input("中文輸入1，English enter 2: ")
-language=None
+print("Hello\nChorose your language")
+player_language=input("中文輸入1，English enter 2:")
 if player_language=="1":
     language="chinese"
 else:
@@ -14,7 +12,7 @@ while True:
             open_tool=input("輸入工具編號開啟（輸入out離開）：")
         else:
             print("\n1.Timer\n2.Game\n3.Calculator\n4.Text editor")
-            open_tool=input("Enter tool ID open(enter'out'to quit): ")
+            open_tool=input("Enter tool ID open(enter'out'to quit):")
         if open_tool=="1":
             tool.timer(language)
         elif open_tool=="2":
