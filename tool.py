@@ -1,6 +1,7 @@
 import time
 import random
 import glob
+import os
 def timer(language):
     try:
         if language=="chinese":
@@ -91,19 +92,18 @@ def text_editor(lanauge):
         if lanauge=="chinese":
             print("歡迎")
             input("按Enter開始")
-            print("1.讀取檔案\n2.新建檔案")
+            print("1.讀取檔案\n2.新建檔案\n3.刪除檔案")
             user_enter=input("輸入編號繼續(輸入out離開）：")
         else:
             print("Wecome")
             input("Use enter start")
-            print("1.Read file\n2.Create new file")
+            print("1.Read file\n2.Create new file\n3.Delete file")
             user_enter=input("Enter the number to continue(Enter'out'to quit):")
         if user_enter=="1":
-            try:
                 for n,t in enumerate(flie,start=1):
                     print(n,t.replace(".os.txt",""))
                 if len(flie)==0:
-                    raise ValueError()
+                    return
                 else:
                     if lanauge=="chinese":
                         choice=int(input("輸入編號開啟："))
@@ -113,8 +113,6 @@ def text_editor(lanauge):
                     open_file=flie[i]
                     with open(open_file,"r",encoding="utf-8")as f:
                         print(f.read())
-            except ValueError:
-                print(f"Not find{choice}")
         if user_enter=="2":
             if lanauge=="chinese":
                 flie_name=input("輸入文件名稱：")
@@ -124,7 +122,27 @@ def text_editor(lanauge):
                 content=input("Input file content:")
             with open(f"{flie_name}.os.txt","w",encoding="utf-8")as f:
                 f.write(content)
-            if user_enter.lower=="out":
+        if user_enter=="3":
+            if len(flie)==0:
                 return
-    except ValueError:
+            else:
+                for n,t in enumerate(flie,start=1):
+                    print(n,t.replace(".os.txt",""))
+                if lanauge=="chinese":
+                    delele=int(input("輸入編號刪除（輸入out取消）"))
+                else:
+                    delele=int(input("Enter the ID to delete (enter'out'to cancel)"))
+                i=delele-1
+                delele_file=flie[i]
+                if lanauge=="chinese":
+                    confirm=input(f"確定刪除檔案編號{delele}（yes/no）？")
+                else:
+                    confirm=input(f"Confirm deletion of file number{delele}?(yes/no)")
+                if confirm=="yes":
+                    os.remove(delele_file)
+                else:
+                    return
+            if user_enter.lower or delele=="out":
+                return
+    except (ValueError,IndexError):
         print(f"Not find{user_enter}")
