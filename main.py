@@ -1,6 +1,7 @@
 import tool
-print("Hello\nChoose your language")
-user_language=input("中文輸入1，English enter 2:")
+import decorate
+decorate.decorate_print("Hello\nChoose your language")
+user_language=decorate.decorate_input("中文輸入1，English enter 2:")
 if user_language=="1":
     language="chinese"
 else:
@@ -8,11 +9,11 @@ else:
 while True:
     try:
         if language=="chinese":
-            print("\n1.計時器\n2.遊戲\n3.計算機\n4.文字編輯器")
-            open_tool=input("輸入工具編號開啟（輸入out離開）：")
+            decorate.decorate_print("\n1.計時器\n2.遊戲\n3.計算機\n4.文字編輯器")
+            open_tool=decorate.decorate_input("輸入工具編號開啟（輸入out離開）：")
         else:
-            print("\n1.Timer\n2.Game\n3.Calculator\n4.Text editor")
-            open_tool=input("Enter tool ID open(enter'out'to quit):")
+            decorate.decorate_print("\n1.Timer\n2.Game\n3.Calculator\n4.Text editor")
+            open_tool=decorate.decorate_input("Enter tool ID open(enter'out'to quit):")
         if open_tool=="1":
             tool.timer(language)
         elif open_tool=="2":
