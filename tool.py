@@ -72,8 +72,8 @@ def calculator(langauge):
             decorate.decorate_input("Use enter start")
             decorate.decorate_print("1.+\n2.-\n3.*\n4./")
             operator=decorate.decorate_input("Enter ID number to calculate(Enter'out'to quit):")
-            numerical_value1=int(decorate.decorate_input("1.",type=int))
-            numerical_value2=int(decorate.decorate_input("2.",type=int))
+            numerical_value1=int(decorate.decorate_input("1."))
+            numerical_value2=int(decorate.decorate_input("2."))
         if operator=="1":
             decorate.decorate_print(numerical_value1+numerical_value2)
         elif operator=="2":
