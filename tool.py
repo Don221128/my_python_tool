@@ -14,6 +14,7 @@ def timer(language):
             decorate.decorate_input("Use enter start")
             number=int(decorate.decorate_input("Enter the number of seconds to time(enter 'out'to quit):"))
         if number=="out":
+            os.system("clear")
             return
         for i in range(number):
             print(i+1)
@@ -22,6 +23,7 @@ def timer(language):
             decorate.decorate_print("完成")
         else:
             decorate.decorate_print("Done")
+        os.system("clear")
     except ValueError:
         decorate.decorate_print(f"Not find {number}")
 def game(langauge):
@@ -41,6 +43,7 @@ def game(langauge):
                 player_enter=int(decorate.decorate_input("Guess a number between 1 and 10(enter'out'to quit):"))
             answer=random.randint(1,10)
             if player_enter=="out":
+                os.system("clear")
                 break
             if answer==player_enter:
                 if langauge=="chinese":
@@ -53,6 +56,7 @@ def game(langauge):
                     decorate.decorate_print("再試一次")
                 else:
                     decorate.decorate_print("Try again")
+        os.system("clear")
     except ValueError:
         decorate.decorate_print(f"Not find {player_enter}")
 def calculator(langauge):
@@ -76,14 +80,20 @@ def calculator(langauge):
             numerical_value2=int(decorate.decorate_input("2."))
         if operator=="1":
             decorate.decorate_print(numerical_value1+numerical_value2)
+            input()
         elif operator=="2":
             decorate.decorate_print(numerical_value1-numerical_value2)
+            input()
         elif operator=="3":
             decorate.decorate_print(numerical_value1*numerical_value2)
+            input()
         elif operator=="4":
             decorate.decorate_print(numerical_value1/numerical_value2)
+            input()
         if operator.lower=="out":
+            os.system("claer")
             return
+        os.system("clear")
     except ValueError:
         decorate.decorate_print(f"Not find {operator}")
 def text_editor(lanauge):
@@ -104,6 +114,7 @@ def text_editor(lanauge):
                 for n,t in enumerate(flie,start=1):
                     decorate.decorate_print(n,t.replace(".os.txt",""))
                 if len(flie)==0:
+                    os.system("clear")
                     return
                 else:
                     if lanauge=="chinese":
@@ -145,5 +156,6 @@ def text_editor(lanauge):
                     return
             if user_enter.lower or delele=="out":
                 return
+            os.system("clear")
     except Exception:
         decorate.decorate_print(f"Not find{user_enter}")
