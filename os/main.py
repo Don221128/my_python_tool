@@ -1,4 +1,4 @@
-import tool
+import app
 import decorate
 import os
 decorate.decorate_print("Hello\nChoose your language")
@@ -18,15 +18,15 @@ while True:
             open_tool=decorate.decorate_input("Enter tool ID open(enter'out'to quit):")
         if open_tool=="1":
             os.system("clear")
-            tool.timer(language)
+            app.timer(language)
         elif open_tool=="2":
             os.system("clear")
-            tool.game(language)
+            app.game(language)
         elif open_tool=="3":
             os.system("clear")
-            tool.calculator(language)
+            app.calculator(language)
         elif open_tool=="4":
-            tool.text_editor(language)
+            app.text_editor(language)
         elif open_tool=="out":
             os.system("clear")
             break
