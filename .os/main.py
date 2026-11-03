@@ -1,21 +1,23 @@
 import app
-import decorate
 import os
-decorate.decorate_print("Hello\nChoose your language")
-user_language=decorate.decorate_input("中文輸入1，English enter 2:")
+import edo
+edo.set_theme_color("green")
+edo.decorate_print("Hello\nChoose your language","|")
+user_language=edo.decorate_input("中文輸入1，English enter 2:","|")
 if user_language=="1":
     language="chinese"
 else:
     language="english"
 os.system("clear")
+open_tool=None
 while True:
     try:
         if language=="chinese":
-            decorate.decorate_print("\n1.計時器\n2.遊戲\n3.計算機\n4.文字編輯器")
-            open_tool=decorate.decorate_input("輸入工具編號開啟（輸入out離開）：")
+            edo.decorate_box("1.計時器\n2.遊戲\n3.計算機\n4.文字編輯器","",title="選單",size=(50,6))
+            open_tool=edo.decorate_input("輸入工具編號開啟（輸入out離開）：","|",only_decorate="start")
         else:
-            decorate.decorate_print("\n1.Timer\n2.Game\n3.Calculator\n4.Text editor")
-            open_tool=decorate.decorate_input("Enter tool ID open(enter'out'to quit):")
+            edo.decorate_box("1.Timer\n2.Game\n3.Calculator\n4.Text editor","",title="Menu",size=(50,6))
+            open_tool=edo.decorate_input("Enter tool ID open(enter'out'to quit):","|",only_decorate="start")
         if open_tool=="1":
             os.system("clear")
             app.timer(language)
