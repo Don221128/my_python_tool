@@ -6,12 +6,10 @@ edo.decorate_print("Hello\nChoose your language","|")
 user_language=edo.decorate_input("中文輸入1，English enter 2:","|")
 if user_language=="1":
     language="chinese"
-else:
+elif user_language=="2":
     language="english"
-os.system("clear")
-open_tool=None
 while True:
-    try:
+    try:     
         if language=="chinese":
             edo.decorate_box("1.計時器\n2.遊戲\n3.計算機\n4.文字編輯器","",title="選單",size=(50,6))
             open_tool=edo.decorate_input("輸入工具編號開啟（輸入out離開）：","|",only_decorate="start")
