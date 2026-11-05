@@ -1,8 +1,9 @@
-import time
-import random
-import glob
-import os
+lazy from time import sleep
+lazy from random import randint
+lazy from glob import glob
+lazy from os import system,remove
 import edo
+edo.set_theme(only_decorate="start")
 def timer(language):
     try:
         if language=="chinese":
@@ -14,16 +15,17 @@ def timer(language):
             edo.decorate_input("Use enter start","|")
             number=int(edo.decorate_input("Enter the number of seconds to time(enter 'out'to quit):","|"))
         if number=="out":
-            os.system("clear")
+            system("clear")
             return
         for i in range(number):
             print(i+1)
-            time.sleep(1)
+            sleep(1)
         if language=="chinese":
             edo.decorate_print("完成","|")
         else:
             edo.decorate_print("Done,","|")
-        os.system("clear")
+        input()
+        system("clear")
     except ValueError:
         print(f"Not find {number}")
 def game(langauge):
@@ -38,12 +40,12 @@ def game(langauge):
             edo.decorate_input("Use enter start","|")
         while True:
             if langauge=="chinese":
-                player_enter=int(edo.decorate_input("猜一個1至10數字（輸入out離開）","|",only_decorate="start"))
+                player_enter=int(edo.decorate_input("猜一個1至10數字（輸入out離開）","|"))
             else:
-                player_enter=int(edo.decorate_input("Guess a number between 1 and 10(enter'out'to quit):","|",only_decorate="start"))
-            answer=random.randint(1,10)
+                player_enter=int(edo.decorate_input("Guess a number between 1 and 10(enter'out'to quit):","|"))
+            answer=randint(1,10)
             if player_enter=="out":
-                os.system("clear")
+                system("clear")
                 break
             if answer==player_enter:
                 if langauge=="chinese":
@@ -56,7 +58,7 @@ def game(langauge):
                     edo.decorate_print("再試一次","|")
                 else:
                     edo.decorate_print("Try again","|")
-        os.system("clear")
+        system("clear")
     except ValueError:
         print(f"Not find {player_enter}")
 def calculator(langauge):
@@ -69,14 +71,14 @@ def calculator(langauge):
             edo.decorate_input("按Enter開始","|",only_decorate="start")
             edo.decorate_print("1.+\n2.-\n3.*\n4./","|")
             operator=edo.decorate_input("輸入編號運算（輸入out離開）：","|")
-            numerical_value1=int(edo.decorate_input("1.","|",only_decorate="start"))
-            numerical_value2=int(edo.decorate_input("2.","|",only_decorate="start"))
+            numerical_value1=int(edo.decorate_input("1.","|"))
+            numerical_value2=int(edo.decorate_input("2.","|"))
         else:
             edo.decorate_print("Hello","|")
-            edo.decorate_input("Use enter start","|",only_decorate="start")
+            edo.decorate_input("Use enter start","|")
             edo.decorate_print("1.+\n2.-\n3.*\n4./","|")
             operator=edo.decorate_input("Enter ID number to calculate(Enter'out'to quit):","|")
-            numerical_value1=int(edo.decorate_input("1.","|",only_decorate="start"))
+            numerical_value1=int(edo.decorate_input("1.","|"))
             numerical_value2=int(edo.decorate_input("2.","|"))
         if operator=="1":
             edo.decorate_print(numerical_value1+numerical_value2,"|")
@@ -90,10 +92,10 @@ def calculator(langauge):
         elif operator=="4":
             edo.decorate_print(numerical_value1/numerical_value2,"|")
             input()
-        if operator.lower=="out":
-            os.system("claer")
+        if operator.lower()=="out":
+            system("clear")
             return
-        os.system("clear")
+        system("clear")
     except ValueError:
         print(f"Not find {operator}")
 def text_editor(lanauge):
@@ -114,7 +116,7 @@ def text_editor(lanauge):
                 for n,t in enumerate(flie,start=1):
                     edo.decorate_print(n,t.replace(".os.txt",""),"|")
                 if len(flie)==0:
-                    os.system("clear")
+                    system("clear")
                     return
                 else:
                     if lanauge=="chinese":
@@ -151,11 +153,11 @@ def text_editor(lanauge):
                 else:
                     confirm=edo.decorate_input(f"Confirm deletion of file number{delele}?(yes/no)","|")
                 if confirm=="yes":
-                    os.remove(delele_file)
+                    remove(delele_file)
                 else:
                     return
-            if user_enter.lower or delele=="out":
+            if user_enter.lower()=="out" or delele=="out":
                 return
-            os.system("clear")
+            system("clear")
     except Exception:
         print(f"Not find{user_enter}")

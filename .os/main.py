@@ -1,7 +1,7 @@
-import app
-import os
+lazy import app
+lazy from os import system
 import edo
-edo.set_theme_color("green")
+edo.set_theme(only_decorate="start",color="green")
 edo.decorate_print("Hello\nChoose your language","|")
 user_language=edo.decorate_input("中文輸入1，English enter 2:","|")
 if user_language=="1":
@@ -17,18 +17,18 @@ while True:
             edo.decorate_box("1.Timer\n2.Game\n3.Calculator\n4.Text editor","",title="Menu",size=(50,6))
             open_tool=edo.decorate_input("Enter tool ID open(enter'out'to quit):","|",only_decorate="start")
         if open_tool=="1":
-            os.system("clear")
+            system("clear")
             app.timer(language)
         elif open_tool=="2":
-            os.system("clear")
+            system("clear")
             app.game(language)
         elif open_tool=="3":
-            os.system("clear")
+            system("clear")
             app.calculator(language)
         elif open_tool=="4":
             app.text_editor(language)
         elif open_tool=="out":
-            os.system("clear")
+            system("clear")
             break
         else:
             if language=="chinese":
